@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "otto-market-mcp-server: OTTO Market MCP server: connect the otto.de partner API to Claude & ChatGPT. Orders, products, returns, stock and price updates."
+message: "If you use this software, please cite AnythingMCP, which it is built on."
+type: software
+authors:
+  - name: "KOCH Freiburg GmbH"
+repository-code: "https://github.com/kochfreiburg/otto-market-mcp-server"
+url: "https://anythingmcp.com/guides/connect-otto-market-to-claude"
+license: AGPL-3.0-only
+references:
+  - type: software
+    title: "AnythingMCP"
+    authors:
+      - name: "helpcode.ai GmbH"
+    repository-code: "https://github.com/HelpCode-ai/anythingmcp"

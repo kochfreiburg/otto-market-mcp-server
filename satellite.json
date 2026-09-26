@@ -1,0 +1,24 @@
+{
+  "$comment": "Read by scripts/install.sh, scripts/smoke.mjs and the sync workflow. Generated; edit satellites.config.json in HelpCode-ai/anythingmcp instead.",
+  "repo": "otto-market-mcp-server",
+  "owner": "kochfreiburg",
+  "mainRepo": "HelpCode-ai/anythingmcp",
+  "adapters": [
+    {
+      "slug": "otto-market",
+      "region": "de",
+      "requiredEnvVars": [
+        "OTTO_USERNAME",
+        "OTTO_PASSWORD"
+      ]
+    }
+  ],
+  "setup": {
+    "type": "adapter"
+  },
+  "smokeCall": {
+    "tool": "otto_market_list_products",
+    "args": {},
+    "mayFailWithoutCredentials": true
+  }
+}
