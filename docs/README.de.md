@@ -7,7 +7,7 @@
 OTTO Market MCP Server gibt Claude, ChatGPT, Copilot und Cursor 8 Tools für OTTO Market: orders, products, returns, stock and price updates. 6 Tools lesen, 2 können Daten ändern. Es läuft auf AnythingMCP: mit einem Klick in AnythingMCP Cloud oder selbst gehostet mit Docker. Zugangsdaten werden verschlüsselt gespeichert, jeder Aufruf landet im Audit-Log.
 
 **Status:** noch nicht gegen ein Live-System geprüft. Der Adapter folgt der API-Dokumentation des Herstellers; Rückmeldungen sind willkommen.  
-**Adapter synchronisiert:** <!-- synced -->2026-09-26
+**Adapter synchronisiert:** <!-- synced -->2026-10-09
 
 Maintained by [KOCH Freiburg GmbH](https://www.kochfreiburg.de/), which runs AnythingMCP in production. Built on [AnythingMCP](https://github.com/HelpCode-ai/anythingmcp) by helpcode.ai.
 
@@ -57,14 +57,14 @@ npm install && node scripts/smoke.mjs
 <!-- tools:start (generated from adapter/*.json, do not edit) -->
 | Tool | Funktion | Zugriff |
 |---|---|---|
-| `otto_market_list_orders` | List orders from a date onwards, with their positions, buyer, delivery address and fulfilment status. | lesen |
+| `otto_market_list_orders` | List orders with their positions, buyer, delivery address and fulfilment status, optionally from/to an order date. | lesen |
 | `otto_market_get_order` | Read one order in full: every position with SKU, price and status, the delivery and invoice addresses, and the payment method. | lesen |
-| `otto_market_list_products` | List the seller's product variations with their SKU, EAN, product reference and current market status on otto.de. | lesen |
-| `otto_market_get_product` | Read one product variation by SKU: its attributes, category, media and the current status of its listing on otto.de. | lesen |
-| `otto_market_list_quantities` | Read the current stock quantities OTTO holds for the seller's SKUs, so a discrepancy with the ERP can be spotted. | lesen |
-| `otto_market_list_returns` | List returns with their SKU, quantity, reason and the order they belong to — the input to any returns-rate question. | lesen |
-| `otto_market_update_quantity` | Set the available stock for one SKU. | schreiben |
-| `otto_market_update_price` | Set the price for one SKU. | schreiben |
+| `otto_market_list_products` | List the seller's product variations with their SKU, EAN, product reference and category, optionally filtered. | lesen |
+| `otto_market_get_product` | Read one product variation by SKU: its attributes, category and media. | lesen |
+| `otto_market_list_quantities` | Read the current stock quantities OTTO holds for the seller's SKUs (up to 200 per page), so a discrepancy with the ERP can be spotted. | lesen |
+| `otto_market_list_returns` | List returned position items by return status, with their SKU, reason and the order they belong to — the input to any returns-rate question. | lesen |
+| `otto_market_update_quantity` | Set the available stock for one SKU, as OTTO's availability interface holds it. | schreiben |
+| `otto_market_update_price` | Set the standard price for one SKU. | schreiben |
 <!-- tools:end -->
 
 ## Beispiel-Prompts
